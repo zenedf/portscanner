@@ -6,8 +6,8 @@
 #!/bin/usr/python3
 
 from termcolor import colored
-from socket import socket
-from os     import system, name
+from socket    import socket
+from os        import system, name
 
 def clear_screen():
     system("clear")
