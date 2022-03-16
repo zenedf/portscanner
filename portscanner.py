@@ -5,9 +5,24 @@
 
 #!/bin/usr/python3
 
-from termcolor import colored
 from socket    import socket
-from os        import system
+from os        import system, name
+
+def which_os():
+    if name == 'nt':
+        return 'windows'
+    if name == 'posix':
+        return 'linux' # mac/linux/BSD
+
+def clear_screen():
+    if which_os() == 'windows':
+        system("cls")
+    if which_os() == 'linux':
+        system("clear")
+
+def introduction():
+    clear_screen()
+    print("Port Scanner v.1 by Ethan Frazier \n")
 
 def scan(target, ports):
     print('\n' + ' Starting Scan For ' + str(target))
@@ -16,7 +31,7 @@ def scan(target, ports):
 
 def scan_port(ipaddress, port):
     try: # to connect to a certain address and port
-        sock = socket() # initalize the socket object
+        sock = socket() # new socket object
         sock.connect((ipaddress, port))
         print("[+] Port Opened " + str(port))
         sock.close()
@@ -25,13 +40,12 @@ def scan_port(ipaddress, port):
 
 def main():
     ''' Main logic of the program '''
-    system("clear")
-    print(colored(("Port Scanner v.1 by Ethan Frazier \n"), 'red'))
+    introduction()
 
     targets = input("[*] Target(s) To Scan: ")
     ports = int(input("[*] How Many Ports: "))
     if ',' in targets:
-        print(colored(("[*] Scanning Multiple Targets"), 'green'))
+        print("[*] Scanning Multiple Targets")
         for ip_addr in targets.split(','):
             scan(ip_addr.strip(' '),ports)
     else:
