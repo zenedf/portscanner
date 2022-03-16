@@ -20,7 +20,8 @@ python3 portscanner.py
   * Provide either 1 or more ip addresses to scan.
     Use ',' as a delimiter.
   * Example:
-     > 192.168.0.1,192.168.0.2,10.0.0.1,10.0.0.2
+     > 192.168.0.1,192.168.0.2,10.0.0.1,10.0.0.2  or
+     > 192.168.0.1
 
 * How Many Ports:
   * Provide how many of the most used ports you want to scan.
