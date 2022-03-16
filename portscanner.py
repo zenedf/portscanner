@@ -5,24 +5,16 @@
 
 #!/bin/usr/python3
 
-from socket    import socket
-from os        import system, name
-
-def which_os():
-    if name == 'nt':
-        return 'windows'
-    if name == 'posix':
-        return 'linux' # mac/linux/BSD
+from termcolor import colored
+from socket import socket
+from os     import system, name
 
 def clear_screen():
-    if which_os() == 'windows':
-        system("cls")
-    if which_os() == 'linux':
-        system("clear")
+    system("clear")
 
 def introduction():
     clear_screen()
-    print("Port Scanner v.1 by Ethan Frazier \n")
+    print(colored(("Port Scanner v.1 by Ethan Frazier \n"), 'red'))
 
 def scan(target, ports):
     print('\n' + ' Starting Scan For ' + str(target))
@@ -30,18 +22,17 @@ def scan(target, ports):
         scan_port(target,port)
 
 def scan_port(ipaddress, port):
-    try: # to connect to a certain address and port
-        sock = socket() # new socket object
-        sock.connect((ipaddress, port))
+    try:
+        sock = socket() # create socket object
+        sock.connect((ipaddress, port)) # attempt connection
         print("[+] Port Opened " + str(port))
         sock.close()
-    except: # it didn't connect {closed, filtered, or ignored ports}
-        pass
+    except: 
+        pass # it didn't connect {closed, filtered, or ignored ports}
 
 def main():
     ''' Main logic of the program '''
     introduction()
-
     targets = input("[*] Target(s) To Scan: ")
     ports = int(input("[*] How Many Ports: "))
     if ',' in targets:
