@@ -16,10 +16,12 @@ Usage
 python3 portscanner.py
 ```
 
-* Target(s) To Scan: [Provide either 1 or more ip addresses to scan]
-                     [Use ',' as a delimiter]
+* Target(s) To Scan:
+  * [Provide either 1 or more ip addresses to scan]
+    [Use ',' as a delimiter]
 
-* How Many Ports:    [Provide how many of the most used ports you want to scan]
+* How Many Ports:
+  * [Provide how many of the most used ports you want to scan]
 
 
 License
