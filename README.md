@@ -4,7 +4,7 @@ Port_Scanner
 This script will scan one or more ip addresses and however many of the most used ports you would like to scan.
 
 
-Requires: python 3, UNIX/Linux
+Requires: python3, UNIX/Linux
 
 
 Usage
