@@ -3,13 +3,11 @@ Port_Scanner
 
 This script will scan one or more ip addresses and however many of the most used ports you would like to scan.
 
-
-Requires: python3, UNIX/Linux
-
+REQUIRES:
+ python3, UNIX/Linux
 
 Usage
 -----
-
 
 ### Advanced
 ```shell
@@ -19,14 +17,20 @@ python3 portscanner.py
 * Target(s) To Scan:
   * Provide either 1 or more ip addresses to scan.
     Use ',' as a delimiter.
-  * Example:
-     > 192.168.0.1,192.168.0.2,10.0.0.1,10.0.0.2  or
-     > 192.168.0.1
-
+  * Example: You can scan one or many.
+    ```shell
+     [*] Target(s) To Scan: 192.168.0.1
+     ```
+     or
+     ```shell
+     [*] Target(s) To Scan: 192.168.0.1,192.168.0.2,10.0.0.1,10.0.0.2  
+     ```
 * How Many Ports:
   * Provide how many of the most used ports you want to scan.
-  * Example: > 100 - will scan 100 of the most used ports.
-
+  * Example: This will scan 100 of the most used ports.
+  ```shell
+  [*] How Many Ports: 100
+  ```
 
 License
 -------
