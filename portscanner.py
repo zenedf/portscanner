@@ -20,22 +20,24 @@ def scan_port(ipaddress, port):
         pass # it didn't connect {closed, filtered, or ignored ports}
 
 def scan(target, ports):
-    print('\n' + ' Starting Scan For ' + str(target))
-    for port in range(1,ports):
+    print(colored(('\n' + '[>] Starting Scan For ' + str(target)),'green'))
+    for port in range(1,ports+1):
         scan_port(target,port)
 
 def clear_screen():
-    if name != "posix":
+    if name != "posix": # if windows
          system("cls")
-    else:
-        system("clear")
+         return
+    system("clear")
 
 def introduction():
     clear_screen()
-    print(colored(("Port Scanner v.1 by Ethan Frazier \n"), 'red'))
+    print(colored(("Port Scanner v.1 by Ethan Frazier \n"), 'cyan'))
+
+def end_program():
+    n = input('\nPRESS ENTER TO EXIT...')
 
 def main():
-    ''' Main logic of the program '''
     introduction()
     targets = input("[*] Target(s) To Scan: ")
     ports = int(input("[*] How Many Ports: "))
@@ -45,6 +47,7 @@ def main():
             scan(ip_addr.strip(' '),ports)
     else:
         scan(targets,ports)
+    end_program()
 
 if __name__ == '__main__':
     main()
