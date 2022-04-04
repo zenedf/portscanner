@@ -1,6 +1,8 @@
 Port_Scanner
 ===========================
 
+**THIS IS FOR EDUCATIONAL PURPOSES ONLY**
+
 This script will scan one or more ip addresses and a number of the most used ports you would like to scan.
 
 REQUIRES:
